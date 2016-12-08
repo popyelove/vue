@@ -7,6 +7,7 @@
 </template>
 <script>
 import HeadComponent from './components/head.vue'
+
 import FootComponent from './components/foot.vue'
 export default {
   name: 'app',
