@@ -1,0 +1,41 @@
+{
+  "list":[
+    {
+      "company_name":"贵州鸿茂农牧业科技发展有限公司",
+      "company_number":"520200000012469",
+      "company_price":128,
+      "company_author":"段超嗨",
+      "company_address":"六盘水",
+      "date":"2016-12-11",
+      "intro":"贵州鸿茂农牧业科技发展有限公司贵州鸿茂农牧业科技发展有限公司贵州鸿茂农牧业科技发展有限公司"
+    },
+    {
+      "company_name":"深圳市饭饭熊餐饮管理有限公司",
+      "company_number":"91440300MA5DC5GT6B",
+      "company_price":324,
+      "company_author":"冯海",
+      "company_address":"深圳",
+      "date":"2016-12-09",
+      "intro":"深圳市饭饭熊餐饮管理有限公司深圳市饭饭熊餐饮管理有限公司深圳市饭饭熊餐饮管理有限公司"
+    },
+    {
+      "company_name":"大连爱推广科技有限公司",
+      "company_number":"91440300MA5DC5GT6B",
+      "company_price":123,
+      "company_author":"孙峰",
+      "company_address":"大连",
+      "date":"2016-12-09",
+      "intro":"大连爱推广科技有限公司大连爱推广科技有限公司大连爱推广科技有限公司"
+    },
+    {
+      "company_name":"贵州鸿茂农牧业科技发展有限公司",
+      "company_number":"520200000012469",
+      "company_price":128,
+      "company_author":"段超嗨",
+      "company_address":"六盘水",
+      "date":"2016-12-11",
+      "intro":"贵州鸿茂农牧业科技发展有限公司贵州鸿茂农牧业科技发展有限公司贵州鸿茂农牧业科技发展有限公司"
+
+    }
+  ]
+}
