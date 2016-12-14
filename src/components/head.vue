@@ -1,7 +1,7 @@
 <template>
    <div class="header">
        <div class="header-con">
-           <img src="http://www.gszr.net/images/logo.png">
+           <img src="../assets/logo.png">
             <ul>
                 <li><router-link to="/">首页</router-link></li>
                 <li><router-link to="/list">博爱</router-link></li>

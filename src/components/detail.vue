@@ -2,7 +2,7 @@
     <div class="detail">
         <div class="movie">
             <div class="movie-left">
-                <img :src=movie.images.large />
+                <img :src=movie_pic />
             </div>
             <div class="movie-right">
                 <h1>标题：{{movie.title}}</h1>
@@ -30,7 +30,6 @@ margin-top:50px;
 .movie-left{
 width:300px;
 height:430px;
-background:green;
 float:left;
 }
 .movie-right{
@@ -49,7 +48,8 @@ margin-left:300px;
         data(){
             return{
                 msg:'hello vue',
-                movie:[]
+                movie:[],
+                movie_pic:''
             }
         },
         components:{
@@ -65,7 +65,8 @@ margin-left:300px;
         }).then(function(response) {
           // 这里是处理正确的回调
 
-            this.movie = response.data
+            this.movie = response.data;
+            this.movie_pic=this.movie.images.large;
             console.log(this.movie);
 
         }, function(response) {

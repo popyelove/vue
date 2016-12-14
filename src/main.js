@@ -2,10 +2,16 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
+//import iView from 'iview';
+//import 'iview/dist/styles/iview.css';    // 使用 CSS
+import ElementUI from 'element-ui';
+//import 'element-ui/lib/theme-default/index.css';
 Vue.config.debug = true;
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(ElementUI);
+//Vue.use(iView);
 import DetailComponent from './components/detail.vue';
 import FootComponent from './components/foot.vue';
 import IndexComponent from './components/index.vue';

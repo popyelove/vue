@@ -9,26 +9,35 @@
             </div>
         </div>
         <div class="company-con-list">
-                <div class="company">
-                    <router-link :to="{path:'detail',query: {id:1292720}}">
-                        <div class="company-name">北京瑞阳安科技术有限公司</div>
+            <router-link :to="{path:'detail',query: {id:1292720}}">
+                <div class="company" v-for="company in companys">
+
+                        <div class="company-name">{{company.company_name}}</div>
                         <div class="zzbh">
-                            执照编号：110108010513649
+                            执照编号：{{company.company_number}}
                             <div class="jgxm">
-                                <span class="price">50&nbsp;万</span>
-                                <span class="name">李超</span>
+                                <span class="price">{{company.company_price}}&nbsp;万</span>
+                                <span class="name">{{company.company_author}}</span>
+                            </div>
+                            <div class="jgxm">
+                                <span class="address">{{company.company_address}}</span>
+                                <span class="date">{{company.date}}</span>
                             </div>
                         </div>
-
-                    </router-link>
+                        <div class="company-price">
+                            <span>一口价:</span>
+                            <span class="company-price-num">10000元</span>
+                        </div>
+                    <div class="introduction">{{company.intro}}</div>
                 </div>
-                <div class="company"></div>
-                <div class="company"></div>
-                <div class="company"></div>
-                <div class="company"></div>
-                <div class="company"></div>
-                <div class="company"></div>
-                <div class="company"></div>
+            </router-link>
+                <!--<div class="company"></div>-->
+                <!--<div class="company"></div>-->
+                <!--<div class="company"></div>-->
+                <!--<div class="company"></div>-->
+                <!--<div class="company"></div>-->
+                <!--<div class="company"></div>-->
+                <!--<div class="company"></div>-->
         </div>
     </div>
 </div>
@@ -37,7 +46,7 @@
 .banner{
 height:470px;
 min-width:960px;
-background:url('http://www.gszr.net/images/banner.jpg') center center no-repeat;
+background:url('../assets/banner.jpg') center center no-repeat;
 }
 .company-list{
 width:1202px;
@@ -104,12 +113,19 @@ box-shadow: 0 0 3px rgba(0,0,0,.1);
 }
 .company .zzbh .jgxm{
     margin:20px 0px;
+    padding-top:15px;
 }
 .company .zzbh .jgxm span.price{
 background:url('../assets/img/zczb.png') left center no-repeat
 }
 .company .zzbh .jgxm span.name{
 background:url('../assets/img/frdb.png') left center no-repeat
+}
+.company .zzbh .jgxm span.address{
+background:url('../assets/img/zcd.png') left center no-repeat
+}
+.company .zzbh .jgxm span.date{
+background:url('../assets/img/zcrq.png') left center no-repeat
 }
 .company .zzbh .jgxm span{
     width:90px;
@@ -120,6 +136,43 @@ background:url('../assets/img/frdb.png') left center no-repeat
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.company-price{
+ line-height:40px;
+ text-align:center;
+ color: #5a5a5c;
+}
+.company-price span{
+ margin-left:15px;
+ font-size: 14px;
+}
+.company-price-num{
+color:red;
+}
+.company .introduction{
+opacity:0;
+transform: translateY(100%);
+transition: transform 0.4s, opacity 0.1s 0.3s;
+
+width: 240px;
+height:100px;
+background: rgba(0,0,0,0.5);
+padding: 10px;
+color: #fff;
+line-height: 20px;
+margin-top:-235px;
+border-bottom-left-radius: 5%;
+border-bottom-right-radius: 5%;
+}
+.company:hover .introduction {
+opacity: 1;
+-webkit-transform: translateY(0px);
+-moz-transform: translateY(0px);
+-ms-transform: translateY(0px);
+transform: translateY(100px);
+-webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+-moz-transition: -moz-transform 0.4s, opacity 0.1s;
+transition: transform 0.4s, opacity 0.1s;
+}
 </style>
 <script>
 export default {
@@ -127,23 +180,24 @@ export default {
   data () {
     return {
       msg: '这是首页',
-      articles:[]
+      companys:[],
+      radio:1
     }
   },
   components:{
   },
   mounted: function() {
-    this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=20', {}, {
+    this.$http.get('./company.json', {}, {
         headers: {
 
         },
         emulateJSON: true
     }).then(function(response) {
       // 这里是处理正确的回调
-            console.log(response.data.subjects)
-        this.articles = response.data.subjects
-        // this.articles = response.data["subjects"] 也可以
 
+        this.companys = response.body.list
+        // this.articles = response.data["subjects"] 也可以
+        console.log(this.companys)
     }, function(response) {
         // 这里是处理错误的回调
         console.log(response)
